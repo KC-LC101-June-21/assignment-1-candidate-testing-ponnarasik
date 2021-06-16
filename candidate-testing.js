@@ -11,7 +11,7 @@ let candidateAnswer;
 let question;
 let correctAnswer;
 let candidateAnswers=[];
-let gradeQuiz;
+//let gradeQuiz;
 //let someAnswer = "Sally Ride";
 
 
@@ -36,7 +36,7 @@ console.log(candidateAnswers);
 //if(candidateAnswers[i]===correctAnswers[i])
   //  console.log('Amazing,you got that right');
 
-
+  }
   }
 /*
 
@@ -55,7 +55,41 @@ for (let j=0; j<questions.length; j++)
 
 
 function gradeQuiz(candidateAnswers) {
-let noOfCorrect=0;
+  let noOfCorrect=0;
+  for (let i = 0; i < questions.length; i++) {
+    if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+      noOfCorrect++;
+    }
+    let grade;
+    grade = (noOfCorrect / questions.length) * 100; 
+    if (grade >= 80){
+      console.log(">>>> Status: PASSED <<<<");
+    } else {
+      console.log(">>>> Status: FAILED <<<<");
+    }
+  return grade;
+ }
+}
+ 
+ 
+ 
+  /*
+  for (let j=0; j<candidateAnswers.length; j++){
+    if(candidateAnswers[j]===correctAnswers[j]){
+      console.log('Amazing,you got that right');
+    } else {
+      console.log("oops");
+    }   
+  }
+  let grade;
+  grade = ((correctAnswers.length) / 5) * 100 
+  console.log(grade)
+  return grade;*/
+
+
+
+
+/*let noOfCorrect=0;
 for (let i = 0; i < questions.length; i++) {
     if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
      {
@@ -68,7 +102,7 @@ if (grade >= 80){
       console.log(">>>> Status: FAILED <<<<");
   }
   return grade;
-} }
+} }*/
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   // let correctAnswer = "Sally Ride";
@@ -78,12 +112,12 @@ if (grade >= 80){
   
 //  console.log (correctAnswers[i]);
  // counter += 1;
-  }// else {
+  // }// else {
   //console.log('Oops');
 //} 
 
   
-}
+
 
 function runProgram() {
   askForName();
