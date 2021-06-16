@@ -30,18 +30,45 @@ function askQuestion() {
    console.log("Your answer :", tempCorrectAnswer)
 
    candidateAnswers.push(tempCorrectAnswer);
-//console.log(candidateAnswers);
-}
- //console.log("Your Answer:", candidateAnswers[i++]);
- 
+console.log(candidateAnswers);
   
+
+//if(candidateAnswers[i]===correctAnswers[i])
+  //  console.log('Amazing,you got that right');
+
+
+  }
+/*
+
+for (let j=0; j<questions.length; j++)
+{
+    if(candidateAnswers[j]===correctAnswers[j])
+    console.log('Amazing,you got that right');
+} 
+
+//console.log("Your Answer:", candidateAnswers[i++]);
+ 
+  */
   
   
  // candidateAnswer = input.question("Who was the first American woman in space? ");
 
 
-
 function gradeQuiz(candidateAnswers) {
+let noOfCorrect=0;
+for (let i = 0; i < questions.length; i++) {
+    if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
+     {
+      noOfCorrect++;
+  let grade;
+ grade = (noOfCorrect / questions.length) * 100; 
+if (grade >= 80){
+      console.log(">>>> Status: PASSED <<<<");
+  } else {
+      console.log(">>>> Status: FAILED <<<<");
+  }
+  return grade;
+} }
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   // let correctAnswer = "Sally Ride";
@@ -55,10 +82,7 @@ function gradeQuiz(candidateAnswers) {
   //console.log('Oops');
 //} 
 
-  let grade;
   
-
-  return grade;
 }
 
 function runProgram() {
@@ -72,7 +96,7 @@ function runProgram() {
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
-  candidateName: candidateName,
+  candidateName: candidateName, 
   question: question,
   correctAnswer: correctAnswer,
   candidateAnswer: candidateAnswer,
