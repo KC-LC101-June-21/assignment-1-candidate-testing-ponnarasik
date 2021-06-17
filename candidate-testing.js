@@ -11,33 +11,58 @@ let candidateAnswer;
 let question;
 let correctAnswer;
 let candidateAnswers=[];
+let noOfCorrect=0;
 //let gradeQuiz;
 //let someAnswer = "Sally Ride";
 
 
 
-function askForName() {
+function askForName() 
+{
   // TODO 1.1b: Ask for candidate's name //
-let candidateName = input.question("Enter your name: ");
-console.log('Welcome', candidateName);
+  let candidateName = input.question("Enter your name: ");
+  console.log('Welcome', candidateName);
 }
 
-function askQuestion() {
+function askQuestion() 
+{
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (let i=0; i<questions.length; i++)
   {
- let tempCorrectAnswer = input.question(questions[i]) ;
-   console.log("Your answer :", tempCorrectAnswer)
+    let tempCorrectAnswer = input.question(questions[i]) ;
+        console.log("Your answer :", tempCorrectAnswer)
+        candidateAnswers.push(tempCorrectAnswer);
+        //console.log(candidateAnswers);
+    if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
+    {
+      noOfCorrect++;
+      //console.log(noOfCorrect)
+    }
+  }
+}
 
-   candidateAnswers.push(tempCorrectAnswer);
-console.log(candidateAnswers);
-  
+function gradeQuiz(candidateAnswers)
+{
+   let grade;
+   grade = (noOfCorrect / questions.length) * 100; 
+   console.log(grade,"%")
+    if (grade >= 80)
+      {
+        console.log(">>>> Status: PASSED <<<<");
+      } 
+    else 
+      {
+        console.log(">>>> Status: FAILED <<<<");
+      }
+  return grade;
+}
+
 
 //if(candidateAnswers[i]===correctAnswers[i])
   //  console.log('Amazing,you got that right');
 
-  }
-  }
+  
+  
 /*
 
 for (let j=0; j<questions.length; j++)
@@ -54,11 +79,12 @@ for (let j=0; j<questions.length; j++)
  // candidateAnswer = input.question("Who was the first American woman in space? ");
 
 
-function gradeQuiz(candidateAnswers) {
+/*function gradeQuiz(candidateAnswers){
   let noOfCorrect=0;
   for (let i = 0; i < questions.length; i++) {
     if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       noOfCorrect++;
+      candidateAnswers.push(noOfCorrect);
     }
     let grade;
     grade = (noOfCorrect / questions.length) * 100; 
