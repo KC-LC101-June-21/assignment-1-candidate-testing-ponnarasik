@@ -47,7 +47,11 @@ function gradeQuiz(candidateAnswers)
 {
    let grade;
    grade = (noOfCorrect / questions.length) * 100; 
-   console.log(">>> Overall Grade:",grade,"%  (",noOfCorrect, "of 5 responses correct ) <<<")
+
+  //  right now you are using the ' key which is right next to the Enter key. Change it to the `~ key, which is next to the 1! key. It's right above Tab
+
+  // Same key, but without shift.
+   console.log(`>>> Overall Grade:  ${grade} %  (${noOfCorrect}  of 5 responses correct ) <<`)
     if (grade >= 80)
       {
         console.log(">>>> Status: PASSED <<<<");
@@ -79,7 +83,6 @@ for (let j=0; j<questions.length; j++)
   
   
  // candidateAnswer = input.question("Who was the first American woman in space? ");
-
 
 /*function gradeQuiz(candidateAnswers){
   let noOfCorrect=0;
